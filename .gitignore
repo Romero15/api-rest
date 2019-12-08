@@ -32,3 +32,4 @@ build/
 
 /bin
 *.yml
+src/main/resources/application.yml
