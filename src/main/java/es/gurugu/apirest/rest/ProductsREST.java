@@ -53,12 +53,13 @@ public class ProductsREST {
 		productDAO.deleteById(productId);
 		return ResponseEntity.ok(null);
 	}
-	//Minuto 52
+
 	@PutMapping
 	public ResponseEntity<Product> updateProduct(@RequestBody Product product){
 		Optional<Product> optionalProduct = productDAO.findById(product.getId());
 		if(optionalProduct.isPresent()) {
 			Product updateProduct = optionalProduct.get();
+			updateProduct.setName(product.getName());
 			productDAO.save(updateProduct);
 			return ResponseEntity.ok(updateProduct);
 		}else {
